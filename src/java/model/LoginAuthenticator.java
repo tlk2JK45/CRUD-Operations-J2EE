@@ -6,6 +6,7 @@
 package model;
 
 import db.DBConnector;
+import dto.UserDTO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,13 +17,16 @@ import java.sql.Statement;
  */
 public class LoginAuthenticator 
 {
-    public boolean isLogin(String username, String password)
+    public boolean isLogin(UserDTO user)
     {
+        String username=user.getUsername();
+        String password=user.getPassword();
+        
         String tablePassword="";
         try
         {
             Statement st=DBConnector.getStatement();
-            String Query="SELECT userPassword FROM userData WHERE userName='"+username.trim()+"'";            
+            String Query="SELECT password FROM userdata WHERE username='"+username.trim()+"'";            
             ResultSet rs=st.executeQuery(Query);
             if(rs.next())
             {

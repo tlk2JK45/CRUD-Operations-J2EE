@@ -8,6 +8,14 @@
         <servlet-name>RegistrationChecker</servlet-name>
         <servlet-class>controller.RegistrationChecker</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminChecker</servlet-name>
+        <servlet-class>controller.AdminChecker</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdationChecker</servlet-name>
+        <servlet-class>controller.UpdationChecker</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginChecker</servlet-name>
         <url-pattern>/LoginChecker</url-pattern>
@@ -16,12 +24,20 @@
         <servlet-name>RegistrationChecker</servlet-name>
         <url-pattern>/RegistrationChecker</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminChecker</servlet-name>
+        <url-pattern>/AdminChecker</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdationChecker</servlet-name>
+        <url-pattern>/UpdationChecker</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>login.html</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

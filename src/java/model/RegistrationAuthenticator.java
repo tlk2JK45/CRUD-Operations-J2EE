@@ -6,6 +6,7 @@
 package model;
 
 import db.DBConnector;
+import dto.UserDTO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,29 +17,34 @@ import java.sql.Statement;
  */
 public class RegistrationAuthenticator 
 {
-    public boolean isRegister(String username, String password, String city, String age)
+    public boolean isRegister(UserDTO user)
     {
+        String username=user.getUsername();
+        String password=user.getPassword();
+        String fname=user.getFname();
+        String lname=user.getLname();
+        String phone=user.getPhone();
+        String city=user.getCity();
+        String age=user.getAge();
+        
         try
         {
             Statement st=DBConnector.getStatement();
-            String Query="SELECT userName FROM userData";//checking if username is already registered.         
-            ResultSet rs=st.executeQuery(Query);
-            while(rs.next())
+            String query="SELECT username FROM userdata WHERE username='"+username+"'";//checking if username is already registered.         
+            ResultSet rs=st.executeQuery(query);
+            if(rs.next())
             {
-                if(username.equals(rs.getString(1)))
-                {
-                    return false; //returing false is username is already registered.
-                }   
-            }
-            Query="INSERT INTO userData VALUES('"+username.trim()+"','"+password+"','"+city.trim()+"','"+age+"')";            
-            int i=st.executeUpdate(Query); //inserting data to database as user is new.
+                return false; //returing false is username is already registered.
+            }              
+            query="INSERT INTO userdata(username,password,fname,lname,phone,city,age) VALUES('"+username.trim()+"','"+password+"','"+fname.trim()+"','"+lname.trim()+"','"+phone.trim()+"','"+city.trim()+"','"+age+"')";            
+            int i=st.executeUpdate(query); //inserting data to database as user is new.
             if(i>0)
             {
                 return true;
             }
             else
             {
-                return false;
+                return false; 
             }
         }
         catch(SQLException e)

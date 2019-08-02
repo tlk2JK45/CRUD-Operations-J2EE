@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dto.UserDTO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,26 +28,39 @@ public class RegistrationChecker extends HttpServlet
         String username= request.getParameter("username");
         String password= request.getParameter("password");
         String cpassword= request.getParameter("cpassword");
+        String fname= request.getParameter("fname");
+        String lname= request.getParameter("lname");
+        String phone= request.getParameter("phone");
         String city= request.getParameter("city");
         String age= request.getParameter("age");
         
-        try
+        
+        if(username.isEmpty() || fname.isEmpty() || lname.isEmpty()|| phone.isEmpty()|| city.isEmpty() || age.isEmpty() || password.isEmpty() || !password.equals(cpassword))
         {
-            if(!username.isEmpty() && !city.isEmpty() && !age.isEmpty() && !password.isEmpty() && !password.equals(cpassword))
-            {
-                response.sendRedirect("registrationFail.jsp");
-            }
-        }catch(Exception e){}
+            System.out.println("1");
+            response.sendRedirect("registrationFail.jsp"); return;
+        }
+        
+        UserDTO user=new UserDTO();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setFname(fname);
+        user.setLname(lname);
+        user.setPhone(phone);
+        user.setCity(city);
+        user.setAge(age);
         
         RegistrationAuthenticator authenticator=new RegistrationAuthenticator();
-        Boolean register=authenticator.isRegister(username, password, city, age);
+        Boolean register=authenticator.isRegister(user);
         
         if(register)
         {
-            response.sendRedirect("login.html");
+            System.out.println("2");
+            response.sendRedirect("login.jsp");
         }
         else
         {
+            System.out.println("3");
             response.sendRedirect("registrationFail.jsp");
         }
     }
