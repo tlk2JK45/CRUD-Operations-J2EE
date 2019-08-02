@@ -1,5 +1,5 @@
-# J2EE-login-registration-cloudapp
-J2EE Project with login/registration facilities. 
+# J2EE-register-login-update-webapp
+J2EE Project with registration, login, updation facilities and also has an seperate administrator login to view entire database. 
 
 ## Technologies used:
 
