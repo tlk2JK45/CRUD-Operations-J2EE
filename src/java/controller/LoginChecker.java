@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dto.UserDTO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,15 +22,19 @@ public class LoginChecker extends HttpServlet
 {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
-        response.sendRedirect("login.html");
+        response.sendRedirect("login.jsp");
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
         String username= request.getParameter("username");
         String password= request.getParameter("password");
         
+        UserDTO user=new UserDTO();
+        user.setUsername(username);
+        user.setPassword(password);
+        
         LoginAuthenticator authenticator=new LoginAuthenticator();
-        Boolean login=authenticator.isLogin(username, password);
+        Boolean login=authenticator.isLogin(user);
         
         if(login)
         {
@@ -39,7 +44,7 @@ public class LoginChecker extends HttpServlet
         }
         else
         {
-            response.sendRedirect("login.html");
+            response.sendRedirect("login.jsp");
         }
     }
 }
