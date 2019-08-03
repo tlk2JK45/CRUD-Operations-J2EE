@@ -1,9 +1,3 @@
-<%-- 
-    Document   : deleteProfile
-    Created on : 3 Aug, 2019, 8:16:36 PM
-    Author     : Gaurav
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : registration
-    Created on : 14 Jul, 2019, 10:07:47 AM
-    Author     : Gaurav
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

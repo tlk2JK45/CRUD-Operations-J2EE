@@ -1,9 +1,3 @@
-<%-- 
-    Document   : updateData
-    Created on : 19 Jul, 2019, 3:44:50 PM
-    Author     : Gaurav
---%>
-
 <%@page import="dto.UserDTO"%>
 <%@page import="dao.UserDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

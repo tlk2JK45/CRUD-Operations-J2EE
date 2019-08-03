@@ -1,9 +1,3 @@
-<%-- 
-    Document   : home
-    Created on : 11 Jul, 2019, 6:00:24 PM
-    Author     : Gaurav
---%>
-
 <%@page import="dto.UserDTO"%>
 <%@page import="dao.UserDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

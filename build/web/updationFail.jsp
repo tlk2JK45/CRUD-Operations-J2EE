@@ -1,9 +1,3 @@
-<%-- 
-    Document   : updationFail
-    Created on : 19 Jul, 2019, 4:06:15 PM
-    Author     : Gaurav
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

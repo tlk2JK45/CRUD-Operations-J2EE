@@ -1,9 +1,3 @@
-<%-- 
-    Document   : login
-    Created on : 19 Jul, 2019, 8:00:56 PM
-    Author     : Gaurav
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : allUserData
-    Created on : 16 Jul, 2019, 7:50:54 PM
-    Author     : Gaurav
---%>
-
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="dto.UserDTO"%>

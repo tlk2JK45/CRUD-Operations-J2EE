@@ -1,9 +1,3 @@
-<%-- 
-    Document   : adminLogout
-    Created on : 21 Jul, 2019, 11:32:29 AM
-    Author     : Gaurav
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
