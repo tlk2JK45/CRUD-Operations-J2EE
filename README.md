@@ -1,5 +1,5 @@
-# J2EE-register-login-update-webapp
-J2EE Project with registration, login, updation facilities and also has an seperate administrator login to view entire database. 
+# CRUD-Operations-J2EE
+A light-weight web application for user registration, login, data updation and id deletion facilities based on session management and MVC paradigm of J2EE. It also implements separate administrator account to view user data. Javascript is not used in this project.
 
 ## Technologies used:
 
