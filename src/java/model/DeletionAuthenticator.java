@@ -15,9 +15,9 @@ import java.sql.Statement;
  *
  * @author Gaurav
  */
-public class LoginAuthenticator 
+public class DeletionAuthenticator 
 {
-    public boolean isLogin(UserDTO user)
+    public boolean isDelete(UserDTO user)
     {
         String username=user.getUsername();
         String password=user.getPassword();
@@ -36,16 +36,23 @@ public class LoginAuthenticator
             {
                 return false;
             }
+            
+            if(password.equals(tablePassword)) //if password is correct then delete record.
+            {
+                query="DELETE FROM userdata WHERE username='"+username.trim()+"'";
+                int i= st.executeUpdate(query);
+                if(i>0)
+                {
+                    return true;
+                }
+                return false;
+            } 
         }
         catch(SQLException e)
         {
             System.out.println(e);
         }
-        
-        if(password.equals(tablePassword))
-        {
-            return true;
-        }
+
         return false;
     }
 }

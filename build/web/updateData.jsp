@@ -21,7 +21,7 @@
            if(username==null || username.trim().equals(""))
            {
                response.sendRedirect("login.jsp");
-               return; //to avoid 'HTTP Status 500 - An exception occurred processing JSP page'
+               return; //to avoid 'HTTP Status 500 - An exception occurred processing JSP page', as java code after this line shouldn't be excuted.
            }          
             UserDAO userDAO=new UserDAO();
             UserDTO userDTO=userDAO.getSpecificUserData(username);

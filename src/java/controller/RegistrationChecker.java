@@ -37,8 +37,8 @@ public class RegistrationChecker extends HttpServlet
         
         if(username.isEmpty() || fname.isEmpty() || lname.isEmpty()|| phone.isEmpty()|| city.isEmpty() || age.isEmpty() || password.isEmpty() || !password.equals(cpassword))
         {
-            System.out.println("1");
-            response.sendRedirect("registrationFail.jsp"); return;
+            response.sendRedirect("registrationFail.jsp"); 
+            return;//to avoid 'HTTP Status 500 - cannot call sendRedirect() after the response has been commited', as we have multiple sendRedirect on one page.
         }
         
         UserDTO user=new UserDTO();
@@ -55,12 +55,10 @@ public class RegistrationChecker extends HttpServlet
         
         if(register)
         {
-            System.out.println("2");
             response.sendRedirect("login.jsp");
         }
         else
         {
-            System.out.println("3");
             response.sendRedirect("registrationFail.jsp");
         }
     }

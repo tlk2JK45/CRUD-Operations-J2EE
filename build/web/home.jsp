@@ -20,7 +20,7 @@
            if(username==null || username.trim().equals(""))
            {
                response.sendRedirect("login.jsp");
-               return; //to avoid 'HTTP Status 500 - An exception occurred processing JSP page'
+               return; //to avoid 'HTTP Status 500 - An exception occurred processing JSP page', as java code after this line shouldn't be excuted.
            }
         %>
         <a href="logout.jsp">Sign Out</a>
@@ -30,7 +30,7 @@
             UserDAO userDAO=new UserDAO();
             UserDTO userDTO=userDAO.getSpecificUserData(username);
         %>
-        <table style="font-size: 20px">
+        <table style="font-size: 20px" border="1">
             <tr>
                 <td><b>Username:</b></td>
                 <td><%=userDTO.getUsername()%></td>        
@@ -61,6 +61,7 @@
             </tr>
         </table>
             <br>
-            <b>To Update data <a href="updateData.jsp">Click here</a></b>
+            <b>To update data <a href="updateData.jsp">Click here</a></b><br><br>
+            <b>To delete your profile <a href="deleteProfile.jsp">Click here</a></b>
     </centre></body>
 </html>

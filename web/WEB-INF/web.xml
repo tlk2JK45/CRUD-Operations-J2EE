@@ -16,6 +16,10 @@
         <servlet-name>UpdationChecker</servlet-name>
         <servlet-class>controller.UpdationChecker</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeletionChecker</servlet-name>
+        <servlet-class>controller.DeletionChecker</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginChecker</servlet-name>
         <url-pattern>/LoginChecker</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>UpdationChecker</servlet-name>
         <url-pattern>/UpdationChecker</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletionChecker</servlet-name>
+        <url-pattern>/DeletionChecker</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

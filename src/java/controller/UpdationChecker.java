@@ -34,14 +34,12 @@ public class UpdationChecker extends HttpServlet
         String phone= request.getParameter("phone");
         String city= request.getParameter("city");
         String age= request.getParameter("age");
-        try
+
+        if(username.isEmpty() || fname.isEmpty() || lname.isEmpty() || phone.isEmpty() || city.isEmpty() || age.isEmpty() || password.isEmpty()|| oldPassword.isEmpty() || !password.equals(conPassword))
         {
-            if(username.isEmpty() || fname.isEmpty() || lname.isEmpty() || phone.isEmpty() || city.isEmpty() || age.isEmpty() || password.isEmpty()|| oldPassword.isEmpty() || !password.equals(conPassword))
-            {
-                System.out.println("1");
-                response.sendRedirect("updationFail.jsp"); return;
-            }
-        }catch(Exception e){}
+            response.sendRedirect("updationFail.jsp"); 
+            return;//to avoid 'HTTP Status 500 - cannot call sendRedirect() after the response has been commited', as we have multiple sendRedirect on one page.
+        }
         
         UserDTO user=new UserDTO();
         user.setUsername(username);
@@ -58,12 +56,10 @@ public class UpdationChecker extends HttpServlet
         
         if(update)
         {
-            System.out.println("2");
             response.sendRedirect("home.jsp");
         }
         else
         {
-            System.out.println("3");
             response.sendRedirect("updationFail.jsp");
         }
     }
